@@ -10,7 +10,7 @@ function Moviecard(props) {
         <p>{Year}</p>
       </div>
         <div>
-        <img src={Poster} alt="" />
+        <img src={Poster} alt={Title} />
         </div>
         
 
