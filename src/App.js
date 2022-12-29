@@ -2,6 +2,7 @@ import {useState,useEffect} from 'react';
 import './App.css';
 import Moviecard from './Moviecard';
 import search from './search.svg'
+import axios from 'axios';
 
 
 
@@ -16,9 +17,11 @@ const [setMovie,setMovieset] = useState([]);
 
 
 const searchMovie = async(title) =>{
-  const res = await fetch(`${API_URL}&s=${title}`);
-  const data = await res.json();
-  console.log(data.Response);
+  // const res = await fetch(`${API_URL}&s=${title}`);
+  // const data = await res.json();
+  const response = await axios.get(`${API_URL}&s=${title}`);
+  const data = response.data;
+  // console.log(data.Response);
   data.Response!=="False"?setMovieset(data.Search):setMovieset([]);
   console.log(setMovie);
  
